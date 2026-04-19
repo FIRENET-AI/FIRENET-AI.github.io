@@ -2,111 +2,258 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
+    <!-- Basis-Metatags -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FIRENET - Fire Incident Risk Evaluation & Networked Early</title>
+    <meta name="description" content="FIRENET – Ein innovatives Waldbrandfrühwarnsystem">
+    
+    <title>FIRENET – Waldbrandfrühwarnsystem</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-            color: #24292e;
-            background-color: #fff;
+            font-family: Arial, sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #333;
         }
-        h1, h2, h3 {
-            border-bottom: 1px solid #e1e4e8;
-            padding-bottom: 0.3em;
+        
+        /* Header */
+        header {
+            background: #0c344f;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
         }
-        a {
-            color: #0969da;
+        
+        /* Navigation */
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            margin: 10px;
+        }
+        
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+        
+        nav ul li {
+            display: inline-block;
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: #fff;
             text-decoration: none;
+            font-weight: bold;
+            transition: opacity 0.3s ease;
         }
-        a:hover {
-            text-decoration: underline;
+        
+        nav ul li a:hover,
+        nav ul li a:focus {
+            opacity: 0.8;
         }
+        
+        /* Mobile Navigation */
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: inline-block;
+            }
+            nav ul {
+                display: none;
+            }
+            nav.open ul {
+                display: block;
+            }
+            nav ul li {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+        
+        /* Main Layout */
+        main {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        
+        main h2 {
+            color: #0c344f;
+            border-bottom: 2px solid #0c344f;
+            padding-bottom: 5px;
+            margin-top: 0;
+        }
+        
+        .flex-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        /* Bilder */
         img {
             max-width: 100%;
-            height: auto;
+            border-radius: 5px;
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
         }
-        iframe {
-            display: block;
-            margin: 1rem 0;
-            max-width: 100%;
+        
+        /* Buttons */
+        .button {
+            display: inline-block;
+            background: #0c344f;
+            color: #fff;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 5px 0;
+            transition: opacity 0.3s ease;
         }
-        hr {
-            border: 0;
-            border-top: 1px solid #e1e4e8;
-            margin: 2rem 0;
+        
+        .button:hover,
+        .button:focus {
+            opacity: 0.85;
         }
-        strong {
-            font-weight: 600;
+        
+        /* Button Group */
+        .button-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 15px 0;
         }
-        code {
-            background-color: #f6f8fa;
-            padding: 0.2em 0.4em;
-            border-radius: 6px;
-            font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+        
+        /* Alert Banner (nur noch Blau, keine Warnfarbe mehr) */
+        .alert-banner {
+            background-color: #0c344f;
+            color: white;
+            text-align: center;
+            padding: 12px;
+            font-weight: bold;
         }
-        .responsive-video {
-          width: 100%;
-          max-width: 820px;
-          height: auto; 
+        
+        /* Helfen Sektion */
+        #helfen {
+            background: #fff;
+            border: 1px solid #0c344f;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
         }
-    </style>
+        
+        /* Formular */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        form label {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        
+        form input,
+        form textarea {
+            padding: 8px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        
+        /* Footer */
+        footer {
+            background: #0c344f;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 20px;
+        }
+        
+      
+   
+        
+        /* Fokus */
+        :focus {
+            outline: 2px solid #0c344f;
+            outline-offset: 2px;
+        }
+        </style>
 </head>
 <body>
 
-<h1>FIRENET: Fire Incident Risk Evaluation & Networked Early
-  Tracking</h1>
+    <!-- Header-Bereich mit Navigation -->
+    <header>
+        <h1>FIRENET - Waldbrandfrühwarnsystem</h1>
+        
+        <!-- Hamburger-Icon für mobile Navigation -->
+        <button class="nav-toggle" aria-label="Navigation umschalten" aria-expanded="false" aria-controls="mainNav">
+            &#9776; <!-- Unicode für Hamburger-Symbol -->
+        </button>
+        
+        <nav id="mainNav" role="navigation" aria-label="Hauptnavigation">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">Über uns</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+   
 
-<img src="IMG_1247_transparent.png" alt="Logo">
+    <main>
+        <!-- Startseite -->
+        <section id="home">
+            <h2>Startseite</h2>
+            <div class="flex-container">
+                <p>
+                    Angesichts der zunehmenden Waldbrandrisiken haben wir FIRENET entwickelt. Es nutzt intelligente Algorithmen, um Hochrisikogebiete zu identifizieren, geeignete Standorte für Überwachungseinheiten abzuleiten und diese autonom zu überwachen. Die Bildaufnahmen erfolgen über Raspberry Pi 4 mit HQ-Kamera und werden mittels des Objekterkennungsmodells YOLOv8 analysiert.
+                    <br><br>
+                    Im Falle eines Brandes sendet die Einheit über einen 4G-Dongle eine Warnung an den Systemoperator, der die Meldung überprüft und an die zuständigen Behörden weiterleitet. Damit lassen sich klassische Feuermeldeketten verkürzen und auch kleinere Waldgebiete wirtschaftlich überwachen. FIRENET wird am 28.04.2026 erstmals in Thüringen eingesetzt und kann so einen wichtigen Beitrag zum Schutz von Wald und Infrastruktur leisten.Im Falle eines Brandes sendet die Einheit über einen 4G-Dongle eine Warnung an den Systemoperator, der die Meldung überprüft und an die zuständigen Behörden weiterleitet. Damit lassen sich klassische Feuermeldeketten verkürzen und auch kleinere Waldgebiete wirtschaftlich überwachen. FIRENET wird am 28.04.2026 erstmals in Thüringen eingesetzt und kann so einen wichtigen Beitrag zum Schutz von Wald und Infrastruktur leisten.
+                </p>
+                <!-- Beispielbild mit beschreibendem Alt-Text -->
+                <img src="approach (2)(1).png" alt="" />
+            </div>
+            <!-- Call-to-Action Buttons -->
+            <div class="button-group">
+                <a href="" class="button" target="_blank" rel="noopener">Anleitung - Standortanalyse</a>
+                <a href="" class="button" target="_blank" rel="noopener">Anleitung - Einheit</a>
+                <a href="" class="button" target="_blank" rel="noopener">Github</a>
 
-<p><strong>„FIRENET – ein intelligentes Frühwarnsystem für Waldbrände“</strong></p>
+            </div>
+        </section>
 
-<hr>
+        <section id="about">
+            <h2>Über uns</h2>
+            Wir sind Karl und Joris Parthier und arbeiten seit Sommer 2025 im Rahmen von Jugend forscht am Projekt FIRENET, einem System zur effizienten Waldbrandfrüherkennung. Wir sind 18 Jahre alt und besuchen das Kaiser-Wilhelm- und Ratsgymnasium.
+        </section>
 
-<h2>Was ist FIRENET?</h2>
+        <section id="contact">
+            <h2>Kontakt</h2>
+            <p><a href="mailto:warnsystem01@gmail.com">joris.parthier@kwr-hannover.eu</a></p>
+        </section>
 
-<p>FIRENET ist ein intelligentes Frühwarnsystem zur Erkennung von Waldbränden.<br>
-Es kombiniert datenbasierte Risikoanalyse mit KI gestützter Raucherkennung direkt vor Ort, 
-um Brandereignisse bereits in der Entstehungsphase zu erkennen.</p>
+    </main>
 
-<p>Auf Basis von Umwelt, Vegetations und Nutzungsdaten identifiziert FIRENET besonders brandgefährdete Bereiche.<br>
-In diesen Zonen kommen <strong>mobile, vernetzte Edge-Geräte</strong> zum Einsatz, die mithilfe neuronaler Netze 
-Rauch in Echtzeit detektieren und automatisch Warnmeldungen auslösen.</p>
-
-<p>FIRENET ist <strong>kosteneffizient, flexibel einsetzbar und infrastrukturschonend</strong> und eignet sich besonders für Regionen, in denen klassische Kameratürme oder Satellitensysteme nicht wirtschaftlich oder wirksam sind.</p>
-
-<hr>
-
-
-<video class="responsive-video" controls>
-  <source src="FIRENET-v1_ Real Time Wildfire Smoke Detection.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-<i>FIRENET-v1: Real Time Wildfire Smoke Detection über https://youtu.be/CL2PnGmowlM?si=6i-OkLMbSxEN4OTo</i>
-
-
-
-
-<h2>Worum geht es in diesem Projekt?</h2>
-
-<p>In Deutschland fehlen Videodaten von Rauchentwicklung aus größerer Entfernung, die für eine zuverlässige automatisierte Waldbrandfrüherkennung benötigt werden. Bisherige Datensätze stammen überwiegend aus den USA und lassen sich nur eingeschränkt auf deutsche Wälder und Landschaften übertragen. In unserem Projekt sammeln Bürger*innen Rauchvideos aus deutschen Wäldern und Landschaften ab ca. 150 m Distanz.</p>
-
-<p>Diese Daten werden von Forschenden genutzt, um ein Open Source KI Modell zu trainieren, das Wildland-Bildmaterial in Echtzeit analysiert und frühe Rauchentwicklung erkennt.</p>
-
-<h2>So einfach geht’s:</h2>
-
-<p>Bürger*innen können aktiv zur Waldbrandfrüherkennung beitragen, indem sie Rauchvideos aus deutschen Wäldern und Landschaften aufnehmen. Dabei ist es wichtig, dass alle Aufnahmen legal und in Absprache mit den lokalen Behörden erfolgen. Geeignete Gelegenheiten sind z. B. Feuerwehrübungen zu Vegetationsbränden, Lager- oder Grillfeuer an genehmigten Grillstellen oder kommunal organisierte Events wie Osterfeuer.</p>
-
-<p>Idealerweise werden die Rauchentwicklungen aus einer Distanz von 150 bis 500 m, abhängig von der Größe des Feuers, aufgenommen. Natürliche Erhöhungen wie Bäume, Hügel oder Aussichtstürme bieten dafür gute Standpunkte. Besonders hilfreich sind Video- oder Bildsequenzen, die den Bereich sowohl vor der Rauchentwicklung als auch während der Rauchentwicklung zeigen.</p>
-
-<p>Die Videos können anschließend mit Standort und Kontextangaben (<code>DD.MM.YYYY_Bundesland_Aufnahmeort_Feuerart_Distanz</code>), z. B.: 01.01.2026_Bayern_Hochsitz_Lagerfeuer_200m auf Google Drive hochgeladen werden.</p>
-
-<p><a href="https://drive.google.com/drive/u/1/folders/1U5al-qM3DIjqzwM8ijy3SawwZKemBJyS?usp=sharing" download>Zum Hochladen hier klicken</a></p>
-
+    <footer>
+        <p>
+            &copy; 2026 Joris & Karl Parthier<br>
+        </p>
+    </footer>
 </body>
 </html>
-
-
